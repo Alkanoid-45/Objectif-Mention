@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Séances de Cours</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
+</head>
+<body>
+    <div>
+        <h1>Gestion des Séances de Cours</h1>
+        <label for="dateInput">Choisir une date et une heure:</label>
+        <input type="date" id="dateInput">
+        <select id="heureInput">
+            <option>choisir une heure</option>
+            <option value="08h05 à 09h00">08h05 à 09h00</option>
+            <option value="09h00 à 09h55">09h00 à 09h55</option>
+            <option value="10h10 à 11h05">10h10 à 11h05</option>
+            <option value="11h05 à 12h00">11h05 à 12h00</option>
+            <option value="12h00 à 12h55">12h00 à 12h55</option>
+            <option value="13h00 à 13h55">13h00 à 13h55</option>
+            <option value="13h55 à 14h50">13h55 à 14h50</option>
+            <option value="15h00 à 15h55">15h00 à 15h55</option>
+            <option value="15h55 à 16h50">15h55 à 16h50</option>
+            <option value="16h50 à 17h45">16h50 à 17h45</option>
+        </select>
+        <!-- Ajout du menu déroulant -->
+        <select id="choixCours">
+            <option>Choisir une spé</option>
+            <option value="Spé Maths">Spé Maths</option>
+            <option value="Spé Physique">Spé Physique</option>
+            <option value="Spé SVT">Spé SVT</option>
+            <option value="Spé SI">Spé SI</option>
+            <option value="Spé NSI">Spé NSI</option>
+            <option value="Spé Art_plastique">Spé Art Plastique</option>
+            <option value="Spé HLP">Spé HLP</option>
+            <option value="Spé LLCE">Spé LLCE</option>
+            <option value="Spé SES">Spé SES</option>
+            <option value="Spé HGGSP">Spé HGGSP</option>
+            <option value="Français">Français</option>
+            <option value="Espagnol">Espagnol</option>
+            <option value="Allemand">Allemand</option>
+            <option value="Anglais">Anglais</option>
+            <option value="Histoire_Géographie">Histoire Géographie</option>
+            <option value="ENS>Physique_chimie">ENS>Physique chimie</option>
+            <option value="ENS>SVT">ENS>SVT</option>
+            <option value="ENS>Maths">ENS>Maths</option>
+        </select>
+        <button onclick="ajouterSeance()">Ajouter Séance</button>
+    </div>
+
+    <div id="seanceContainer"></div>
+    <!-- Ajout du formulaire d'inscription -->
+    <div id="inscriptionForm">
+
+    <div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <!-- Votre formulaire d'inscription ici -->
+        <h2>Inscription</h2>
+        <label for="nom">Nom:</label>
+        <input type="text" id="nom" required>
+
+        <label for="prenom">Prénom:</label>
+        <input type="text" id="prenom" required>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" required>
+        <span id="emailError" style="color: red;"></span>
+
+        <label for="classe">Classe:</label>
+        <select id="classe" required>
+            <!-- Ajoutez les options de classe -->
+            <option value="1A">1A</option>
+            <option value="1B">1B</option>
+            <option value="1C">1C</option>
+            <option value="TA">TA</option>
+            <option value="TB">TB</option>
+            <option value="TC">TC</option>
+            <!-- ... Ajoutez d'autres classes ... -->
+        </select>
+
+        <label for="role">Rôle:</label>
+        <select id="role" required>
+            <option value="donneur">Je donne</option>
+            <option value="receveur">Je reçois</option>
+        </select>
+
+        <button onclick="validerInscription()">Valider l'inscription</button>
+        <!-- ... -->
+    </div>
+    </div>
+<script src="script.js"></script>
+</body>
+</html>
