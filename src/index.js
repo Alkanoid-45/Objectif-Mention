@@ -230,7 +230,3 @@ function isValidEmail(email) {
     return emailRegex.test(email);
 }
 chargerSeances();
-
-function test() {
-    console.log("Test")
-}
