@@ -1,5 +1,3 @@
-//import "firebase/firebase.js"
-
 let listeSeances = [];
 let inscriptions = [];
 var USER_ID = "NZuC-8ONb93muw6BP"; // Remplacez par votre identifiant d'utilisateur Email.js
@@ -232,3 +230,7 @@ function isValidEmail(email) {
     return emailRegex.test(email);
 }
 chargerSeances();
+
+function test() {
+    console.log("Test")
+}

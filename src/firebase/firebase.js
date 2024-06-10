@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app"
 import { getAuth } from "firebase/auth";
+import "../index.js";
 
 const firebaseApp = initializeApp(  {
     apiKey: "AIzaSyAkedT0XedGHTUhxcJjcdToYsx4JZuWnRw",
@@ -13,3 +14,5 @@ const firebaseApp = initializeApp(  {
   });
 
 const auth = getAuth(firebaseApp);
+
+test();
