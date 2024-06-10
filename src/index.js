@@ -1,8 +1,10 @@
 let listeSeances = [];
 let inscriptions = [];
+var compteurInscription = 0;
 var USER_ID = "NZuC-8ONb93muw6BP"; // Remplacez par votre identifiant d'utilisateur Email.js
 var SERVICE_ID = "service_3y4q2xc"; // Remplacez par votre identifiant de service Email.js
 var TEMPLATE_ID = "template_mvy8wc1"; // Remplacez par votre identifiant de modèle Email.js
+
     
 
 function ajouterSeance() {
@@ -23,6 +25,7 @@ function ajouterSeance() {
 
     listeSeances.push(nouvelleSeance);
     inscriptions.push([])
+    
     sauvegarderSeances(); // Sauvegarder les séances dans le stockage local
     afficherSeances();
 }
@@ -96,7 +99,6 @@ function verifierDate() {
 
 setInterval(verifierDate, 1000 * 60 * 60 * 24);
 
-var compteurInscription = 0;
 
 function inscription(indexSeance) {
     var modal = document.getElementById("myModal");
@@ -180,6 +182,7 @@ function validerInscription() {
     var msg_warn = "Un mail de confirmation vous à été envoyer à l'adresse mail suivante : " + email
     alert(msg_warn)
     console.log(msg_warn);
+    
     return;
 }
 
