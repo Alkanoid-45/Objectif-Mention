@@ -1,4 +1,4 @@
-import "firebase/firebase.js"
+//import "firebase/firebase.js"
 
 let listeSeances = [];
 let inscriptions = [];
