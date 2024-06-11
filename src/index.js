@@ -1,3 +1,5 @@
+import {app,auth,analytics} from "./firebase.js"
+
 let listeSeances = [];
 let inscriptions = [];
 var compteurInscription = 0;
@@ -165,7 +167,7 @@ function connexion(){
 
 }
 
-
+export {ajouterSeance,connexion,supprimerSeance,validerInscription}
 
 
 
