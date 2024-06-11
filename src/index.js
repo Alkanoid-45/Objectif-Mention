@@ -1,5 +1,3 @@
-//import "./firebase/firebase";
-
 let listeSeances = [];
 let inscriptions = [];
 var compteurInscription = 0;
@@ -155,7 +153,7 @@ function validerInscription() {
     var email = document.getElementById("email").value;
     var role = document.getElementById("role").value;
 
-    if (isValidEmail(email)) {
+    if (!isValidEmail(email)) {
         document.getElementById("emailError").textContent = "Veuillez entrer un e-mail valide.";
         return;
     } else {
@@ -228,7 +226,8 @@ function envoyerEmailConfirmation(nom, prenom, email, role, dateSeance, heureSea
         });
 }
 function isValidEmail(email) {
-    // Utilisez une expression régulière pour la validation de l'e-mail
-    return email.includes('@stpbb.org')
+    // Vérifie si la chaîne '@stpbb.org' est présente dans le paramètre 'email'
+    console.log(email)
+    return email.includes('@stpbb.org');
 }
 chargerSeances();
