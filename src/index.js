@@ -1,3 +1,5 @@
+//import "./firebase/firebase";
+
 let listeSeances = [];
 let inscriptions = [];
 var compteurInscription = 0;
@@ -10,8 +12,9 @@ function ajouterSeance() {
     var dateInput = document.getElementById("dateInput").value;
     var heureInput = document.getElementById("heureInput").value;
     var choixCours = document.getElementById("choixCours").value;
+    var choixClasse = document.getElementById("classeInput").value;
 
-    if (!dateInput  || !heureInput || !choixCours) {
+    if (!dateInput  || !heureInput || !choixCours || !choixClasse) {
         alert("Veuillez fournir toutes les information.");
         return;
     }
@@ -20,6 +23,7 @@ function ajouterSeance() {
         date: dateInput,
         heure: heureInput,
         cours: choixCours,
+        classe: choixClasse,
     };
  
     listeSeances.push(nouvelleSeance);
@@ -40,7 +44,7 @@ function afficherSeances() {
         var seance = listeSeances[i];
         var nouvelleSeance = document.createElement("div");
         nouvelleSeance.className = "seance";
-        nouvelleSeance.innerHTML = "<span class='closeBtn' onclick='supprimerSeance(" + i + ")'>&times;</span><p>Date : " + seance.date + "</p><p>Heure : " + seance.heure + "</p><p>Cours : " + seance.cours + "</p>";
+        nouvelleSeance.innerHTML = "<span class='closeBtn' onclick='supprimerSeance(" + i + ")'>&times;</span><p>Date : " + seance.date + "</p><p>Heure : " + seance.heure + "</p><p>Cours : " + seance.cours + "</p><p>Classe : " + seance.classe + "</p>";
 
         // Ajout du bouton "S'inscrire"
         var boutonInscription = document.createElement("button");
@@ -194,13 +198,14 @@ function inscription(listeSeances, indexSeance) {
 
 // Fonction pour valider l'inscription
 function validerInscription() {
+    resetInscriptionForm()
     var indexSeance = document.getElementById("inscriptionForm").dataset.indexSeance;
     var nom = document.getElementById("nom").value;
     var prenom = document.getElementById("prenom").value;
     var email = document.getElementById("email").value;
     var role = document.getElementById("role").value;
 
-    if (!isValidEmail(email)) {
+    if (isValidEmail(email)) {
         document.getElementById("emailError").textContent = "Veuillez entrer un e-mail valide.";
         return;
     } else {
@@ -224,12 +229,12 @@ function validerInscription() {
     var dateSeance = seance.date;
     var heureSeance = seance.heure;
     var nomCours = seance.cours;
+    var classe =  seance.classe;
 
 
-    envoyerEmailConfirmation(nom, prenom, email, role, dateSeance, heureSeance, nomCours);
+    envoyerEmailConfirmation(nom, prenom, email, role, dateSeance, heureSeance, nomCours,classe);
 
     // Réinitialiser le formulaire
-    resetInscriptionForm();
     var msg_warn = "Un mail de confirmation vous à été envoyer à l'adresse mail suivante : " + email
     alert(msg_warn)
     console.log(msg_warn);
@@ -257,7 +262,7 @@ function afficherFormulaire() {
 }
 
 
-function envoyerEmailConfirmation(nom, prenom, email, role, dateSeance, heureSeance, nomCours) {
+function envoyerEmailConfirmation(nom, prenom, email, role, dateSeance, heureSeance, nomCours,classe) {
     emailjs.init(USER_ID);
 
     var templateParams = {
@@ -267,7 +272,8 @@ function envoyerEmailConfirmation(nom, prenom, email, role, dateSeance, heureSea
         role: role,
         dateSeance: dateSeance,
         heureSeance: heureSeance,
-        nomCours: nomCours
+        nomCours: nomCours,
+        classe: classe,
 
     };
 
@@ -282,8 +288,7 @@ function envoyerEmailConfirmation(nom, prenom, email, role, dateSeance, heureSea
 
 function isValidEmail(email) {
     // Utilisez une expression régulière pour la validation de l'e-mail
-    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+    return email.includes('@stpbb.org')
 }
 
 

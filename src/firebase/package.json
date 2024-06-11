@@ -2,6 +2,5 @@
     "name":"firebase",
     "version": "1.0.0",
     "main": "./firebase.js",
-    "type":"module",
-    "exports": "./"
+    "type":"module"
 }

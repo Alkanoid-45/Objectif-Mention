@@ -10,6 +10,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "commonjs": "^0.0.1",
     "firebase": "^10.12.2"
   },
   "devDependencies": {
