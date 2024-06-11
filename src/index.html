@@ -18,11 +18,12 @@
     <div>
         <h1>Gestion des Séances de Tutorat
         <p1 id="zbtnCS">
-            <button id="btnC">Se Connecter</button>
+            <button id="btnC" onclick="connexion()">Se Connecter</button>
             <button id="btnS">S'inscrire</button>
         </p1>
         </h1>
     </div>
+    <script src="index.js"></script>
 </head>
 <body>
     <div id="input_info">
@@ -103,8 +104,8 @@
         <button onclick="validerInscription()">Valider l'inscription</button>
         <!-- ... -->
     </div>
-    <div id="connexion">
-        <span class="close">&times;</span>
+    <div id="connexion" class="modalconnexion">
+        <span class="closeconnexion">&times;</span>
         <h3>Connexion</h3>
         <input type="text" id="username" required> Nom d'utilisateur</label>
     </div>

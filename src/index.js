@@ -21,7 +21,6 @@ function ajouterSeance() {
         date: dateInput,
         heure: heureInput,
         cours: choixCours,
-        classe: choixClasse,
     };
  
     listeSeances.push(nouvelleSeance);
@@ -42,7 +41,7 @@ function afficherSeances() {
         var seance = listeSeances[i];
         var nouvelleSeance = document.createElement("div");
         nouvelleSeance.className = "seance";
-        nouvelleSeance.innerHTML = "<span class='closeBtn' onclick='supprimerSeance(" + i + ")'>&times;</span><p>Date : " + seance.date + "</p><p>Heure : " + seance.heure + "</p><p>Cours : " + seance.cours + "</p><p>Classe : " + seance.classe + "</p>";
+        nouvelleSeance.innerHTML = "<span class='closeBtn' onclick='supprimerSeance(" + i + ")'>&times;</span><p>Date : " + seance.date + "</p><p>Heure : " + seance.heure + "</p><p>Cours : " + seance.cours + "</p>";
 
         // Ajout du bouton "S'inscrire"
         var boutonInscription = document.createElement("button");
@@ -111,17 +110,6 @@ setInterval(verifierDate, 1000 * 60 * 60 * 24);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 function inscription(listeSeances, indexSeance) {
     var modal = document.getElementById("myModal");
     modal.style.display = "block"; // Affiche la pop-up
@@ -165,7 +153,17 @@ function inscription(listeSeances, indexSeance) {
     }
 }
 
+function connexion(){
+    var modalconnexion = document.getElementById("modalconnexion");
+    modalconnexion.style.display = "block";
 
+
+    var closeBtn = document.getElementsByClassName("closeconnexion")[0];
+    closeBtn.onclick = function() {
+        modal.style.display = "none";
+    }
+
+}
 
 
 
