@@ -5,7 +5,6 @@ var USER_ID = "NZuC-8ONb93muw6BP"; // Remplacez par votre identifiant d'utilisat
 var SERVICE_ID = "service_3y4q2xc"; // Remplacez par votre identifiant de service Email.js
 var TEMPLATE_ID = "template_mvy8wc1"; // Remplacez par votre identifiant de modèle Email.js
 
-    
 
 function ajouterSeance() {
     var dateInput = document.getElementById("dateInput").value;
@@ -24,13 +23,16 @@ function ajouterSeance() {
         cours: choixCours,
         classe: choixClasse,
     };
-
+ 
     listeSeances.push(nouvelleSeance);
     inscriptions.push([])
     
     sauvegarderSeances(); // Sauvegarder les séances dans le stockage local
     afficherSeances();
 }
+
+
+
 
 function afficherSeances() {
     var seanceContainer = document.getElementById("seanceContainer");
@@ -61,13 +63,18 @@ function afficherSeances() {
         nouvelleSeance.appendChild(nombreInscrits);
 
         seanceContainer.appendChild(nouvelleSeance);
-}
+    }
 
-        }
+}
 
 function sauvegarderSeances() {
     localStorage.setItem('seances', JSON.stringify(listeSeances));
 }
+
+
+
+
+
 
 function chargerSeances() {
     var seancesStockees = localStorage.getItem('seances');
@@ -102,7 +109,20 @@ function verifierDate() {
 setInterval(verifierDate, 1000 * 60 * 60 * 24);
 
 
-function inscription(indexSeance) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+function inscription(listeSeances, indexSeance) {
     var modal = document.getElementById("myModal");
     modal.style.display = "block"; // Affiche la pop-up
 
@@ -110,7 +130,9 @@ function inscription(indexSeance) {
     var closeBtn = document.getElementsByClassName("close")[0];
     closeBtn.onclick = function() {
         modal.style.display = "none";
-        compteurInscription++;
+        for (var i = 0; i < listeSeances; i++) {
+            inscriptions[indexSeance].splice(indexSeance, 1);
+        } 
     };
     var inscriptionForm = document.getElementById("inscriptionForm");
     inscriptionForm.style.display = "block";
@@ -144,6 +166,34 @@ function inscription(indexSeance) {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Fonction pour valider l'inscription
 function validerInscription() {
     resetInscriptionForm()
@@ -172,6 +222,7 @@ function validerInscription() {
     console.log("Prénom: " + prenom);
     console.log("Rôle: " + role);
     console.log("Email: " + email);
+    console.log(listeSeances);
     var seance = listeSeances[indexSeance];
     var dateSeance = seance.date;
     var heureSeance = seance.heure;
@@ -189,6 +240,10 @@ function validerInscription() {
     return;
 }
 
+
+
+
+
 // Fonction pour réinitialiser le formulaire d'inscription
 function resetInscriptionForm() {
     var inscriptionForm = document.getElementById("inscriptionForm");
@@ -198,6 +253,8 @@ function resetInscriptionForm() {
     document.getElementById("prenom").value = "";
     document.getElementById("role").value = "";
 }
+
+
 function afficherFormulaire() {
         document.getElementById("inscriptionForm").style.display = "block";
 }
@@ -225,9 +282,13 @@ function envoyerEmailConfirmation(nom, prenom, email, role, dateSeance, heureSea
             console.log("Erreur lors de l'envoi de l'e-mail", error);
         });
 }
+
+
 function isValidEmail(email) {
     // Vérifie si la chaîne '@stpbb.org' est présente dans le paramètre 'email'
     console.log(email)
     return email.includes('@stpbb.org');
 }
+
+
 chargerSeances();
