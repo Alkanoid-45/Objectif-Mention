@@ -4,7 +4,6 @@ var TEMPLATE_ID = "template_mvy8wc1";
 
 let listeSeances = [];
 
-
 chargerSeances();
 
 function ajouterSeance(){
@@ -54,15 +53,19 @@ function afficherSeances() {
         boutonInscription.id = "btn_ajouter"
         boutonInscription.onclick = function(index) {
             return function() {
+                seance.inscris++;
                 inscription(index);
             };
         }(i);
 
+        nouvelleSeance.appendChild(boutonInscription);
         seanceContainer.appendChild(nouvelleSeance);
     }
     
     console.log(listeSeances);
 }
+
+
 
 
 
@@ -232,15 +235,69 @@ function chargerSeances() {
 
 
 
+function validerInscription() {
+    resetInscriptionForm()
+    var indexSeance = document.getElementById("inscriptionForm").dataset.indexSeance;
+    var nom = document.getElementById("nom").value;
+    var prenom = document.getElementById("prenom").value;
+    var email = document.getElementById("email").value;
+    var role = document.getElementById("role").value;
+
+    if (!isValidEmail(email)) {
+        document.getElementById("emailError").textContent = "Veuillez entrer un e-mail valide.";
+        return;
+    } else {
+        document.getElementById("emailError").textContent = "";
+    }
+
+    if (!nom || !prenom || !email || !role) {
+        alert("Veuillez remplir tous les champs.");
+        return;
+    }
+
+    // Vous pouvez utiliser ces informations comme bon vous semble, par exemple, les stocker dans un tableau ou un objet
+    // ici, je les affiche simplement dans la console
+    console.log("Inscription validée pour la séance " + indexSeance + ":");
+    console.log("Nom: " + nom);
+    console.log("Prénom: " + prenom);
+    console.log("Rôle: " + role);
+    console.log("Email: " + email);
+    console.log(listeSeances);
+    var seance = listeSeances[indexSeance];
+    var dateSeance = seance.date;
+    var heureSeance = seance.heure;
+    var nomCours = seance.cours;
+    var classe =  seance.classe;
+
+
+    envoyerEmailConfirmation(nom, prenom, email, role, dateSeance, heureSeance, nomCours,classe);
+
+    // Réinitialiser le formulaire
+    var msg_warn = "Un mail de confirmation vous à été envoyer à l'adresse mail suivante : " + email
+    alert(msg_warn)
+    console.log(msg_warn);
+    
+    return;
+}
 
 
 
 
 
+// Fonction pour réinitialiser le formulaire d'inscription
+function resetInscriptionForm() {
+    var inscriptionForm = document.getElementById("inscriptionForm");
+    inscriptionForm.style.display = "none";
+    inscriptionForm.dataset.indexSeance = "";
+    document.getElementById("nom").value = "";
+    document.getElementById("prenom").value = "";
+    document.getElementById("role").value = "";
+}
 
 
-
-
+function afficherFormulaire() {
+        document.getElementById("inscriptionForm").style.display = "block";
+}
 
 
 
