@@ -39,7 +39,7 @@ function ajouterSeance(){
 
 function afficherSeances() {
     var seanceContainer = document.getElementById("seanceContainer");
-
+    seanceContainer.innerHTML = "";
 
     for (var i = 0; i < listeSeances.length; i++) {
         var seance = listeSeances[i];
@@ -58,9 +58,9 @@ function afficherSeances() {
             };
         }(i);
 
-        
+        seanceContainer.appendChild(nouvelleSeance);
     }
-    seanceContainer.appendChild(nouvelleSeance);
+    
     console.log(listeSeances);
 }
 
@@ -199,54 +199,6 @@ function chargerSeances() {
         afficherSeances();
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
