@@ -92,15 +92,6 @@ function afficherSeancesTest() {
 
 
 
-
-
-
-
-
-
-
-
-
 function inscription(listeSeances, indexSeance) {
     var modal = document.getElementById("myModal");
     modal.style.display = "block"; // Affiche la pop-up
@@ -333,6 +324,3 @@ function isValidEmail(email) {
     console.log(email)
     return email.includes('@stpbb.org');
 }
-
-
-
