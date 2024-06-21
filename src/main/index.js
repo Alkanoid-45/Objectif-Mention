@@ -58,6 +58,11 @@ function afficherSeances() {
             };
         }(i);
 
+        var nombreInscrits = document.createElement("span");
+        nombreInscrits.textContent = "Nombre d'inscrits : " + listeSeances[i].inscris; // Utilisation de la longueur du tableau d'inscriptions
+        nombreInscrits.id = "nombreInscrits_" + i;
+
+        nouvelleSeance.appendChild(nombreInscrits);
         nouvelleSeance.appendChild(boutonInscription);
         seanceContainer.appendChild(nouvelleSeance);
     }
@@ -82,15 +87,6 @@ function afficherSeancesTest() {
         nouvelleSeance.appendChild(nombreInscrits);
     }
 }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -333,6 +329,3 @@ function isValidEmail(email) {
     console.log(email)
     return email.includes('@stpbb.org');
 }
-
-
-
