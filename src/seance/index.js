@@ -38,11 +38,7 @@ function ajouterSeance(){
 
 function afficherSeances() {
     var seanceContainer = document.getElementById("seanceContainer");
-    try {
         seanceContainer.innerHTML = "";
-        } catch (e) {
-        console.log(e);
-    }
 
     for (var i = 0; i < listeSeances.length; i++) {
         var seance = listeSeances[i];
@@ -68,11 +64,7 @@ function afficherSeances() {
 
         nouvelleSeance.appendChild(nombreInscrits);
         nouvelleSeance.appendChild(boutonInscription);
-        try {
             seanceContainer.appendChild(nouvelleSeance);
-        } catch (e) {
-            console.log(e);
-        }
     }
     
     console.log(listeSeances);
