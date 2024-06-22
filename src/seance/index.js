@@ -92,11 +92,6 @@ function afficherSeancesTest() {
 
 
 
-
-
-
-
-
 function inscription(listeSeances, indexSeance) {
     var modal = document.getElementById("myModal");
     modal.style.display = "block"; // Affiche la pop-up
@@ -146,25 +141,6 @@ function inscription(listeSeances, indexSeance) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function supprimerSeance(indexSeance, inscription) {
     listeSeances.splice(indexSeance, 1);
     sauvegarderSeances();
@@ -198,32 +174,6 @@ function chargerSeances() {
         afficherSeances();
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
