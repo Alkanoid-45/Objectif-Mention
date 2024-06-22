@@ -72,26 +72,6 @@ function afficherSeances() {
 
 
 
-
-
-function afficherSeancesTest() {
-    for (var i = 0; i < listeSeances.length; i++) {
-         // Ajout du bouton "S'inscrire"
-        
-
-        nouvelleSeance.appendChild(boutonInscription);
-        // Ajout du nombre d'inscrits
-        var nombreInscrits = document.createElement("span");
-        nombreInscrits.textContent = "Nombre d'inscrits : " + inscriptions[i].length; // Utilisation de la longueur du tableau d'inscriptions
-        nombreInscrits.id = "nombreInscrits_" + i;
-        nouvelleSeance.appendChild(nombreInscrits);
-    }
-}
-
-
-
-
-
 function inscription(listeSeances, indexSeance) {
     var modal = document.getElementById("myModal");
     modal.style.display = "block"; // Affiche la pop-up
