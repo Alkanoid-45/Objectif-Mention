@@ -161,6 +161,16 @@ function chargerSeances() {
 
 
 
+
+
+
+
+
+
+
+
+
+
 function validerInscription() {
     resetInscriptionForm()
     var indexSeance = document.getElementById("inscriptionForm").dataset.indexSeance;
@@ -171,6 +181,7 @@ function validerInscription() {
 
     if (!isValidEmail(email)) {
         document.getElementById("emailError").textContent = "Veuillez entrer un e-mail valide.";
+        alert("Veuillez entrer un e-mail valide."); 
         return;
     } else {
         document.getElementById("emailError").textContent = "";
@@ -218,6 +229,7 @@ function resetInscriptionForm() {
     document.getElementById("nom").value = "";
     document.getElementById("prenom").value = "";
     document.getElementById("role").value = "";
+    document.getElementById("email").value = "";
 }
 
 
