@@ -1,0 +1,21 @@
+{
+  "name": "your-package-name",
+  "version": "1.0.0",
+  "description": "",
+  "main": "/dist/index.js",
+  "mode": "commonjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.config.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "firebase": "^10.12.2",
+    "webpack": "^5.92.1"
+  },
+  "devDependencies": {
+    "webpack-cli": "^5.1.4"
+  }
+}
