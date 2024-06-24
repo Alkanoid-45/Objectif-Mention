@@ -5,6 +5,7 @@ var TEMPLATE_ID = "template_mvy8wc1";
 let listeSeances = [];
 
 chargerSeances();
+afficherSeances();
 
 function ajouterSeance(){
     var dateInput = document.getElementById("dateInput").value;
@@ -38,7 +39,7 @@ function ajouterSeance(){
 
 function afficherSeances() {
     var seanceContainer = document.getElementById("seanceContainer");
-    seanceContainer.innerHTML = "a";
+    seanceContainer.innerHTML = "";
 
     for (var i = 0; i < listeSeances.length; i++) {
         var seance = listeSeances[i];
@@ -179,6 +180,7 @@ function validerInscription() {
     var email = document.getElementById("email").value;
     var role = document.getElementById("role").value;
 
+    /*
     if (!isValidEmail(email)) {
         document.getElementById("emailError").textContent = "Veuillez entrer un e-mail valide.";
         alert("Please enter a valid email.");
@@ -186,11 +188,12 @@ function validerInscription() {
     } else {
         document.getElementById("emailError").textContent = "";
     }
-
+    
+    
     if (!nom || !prenom || !email || !role) {
         alert("Veuillez remplir tous les champs.");
         return;
-    }
+    }*/
 
     // Vous pouvez utiliser ces informations comme bon vous semble, par exemple, les stocker dans un tableau ou un objet
     // ici, je les affiche simplement dans la console
@@ -201,8 +204,10 @@ function validerInscription() {
     console.log("Email: " + email);
     console.log(listeSeances);
     var seance = listeSeances[indexSeance];
+    console.log(seance);
+    /*var heureSeance = seance.heure;
     var dateSeance = seance.date;
-    var heureSeance = seance.heure;
+    
     var nomCours = seance.cours;
     var classe =  seance.classe;
 
@@ -212,7 +217,7 @@ function validerInscription() {
     // Réinitialiser le formulaire
     var msg_warn = "Un mail de confirmation vous à été envoyer à l'adresse mail suivante : " + email
     alert(msg_warn)
-    console.log(msg_warn);
+    console.log(msg_warn);*/
     
     return;
 }
@@ -234,7 +239,7 @@ function resetInscriptionForm() {
 
 
 function afficherFormulaire() {
-        document.getElementById("inscriptionForm").style.display = "block";
+    document.getElementById("inscriptionForm").style.display = "block";
 }
 
 
@@ -267,7 +272,6 @@ function envoyerEmailConfirmation(nom, prenom, email, role, dateSeance, heureSea
 
 
 function isValidEmail(email) {
-    // Vérifie si la chaîne '@stpbb.org' est présente dans le paramètre 'email'
     console.log(email)
     return email.includes('@stpbb.org');
 }
