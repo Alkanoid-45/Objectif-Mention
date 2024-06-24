@@ -3,6 +3,7 @@ var SERVICE_ID = "service_3y4q2xc"; // Remplacez par votre identifiant de servic
 var TEMPLATE_ID = "template_mvy8wc1";
 
 let listeSeances = [];
+let vara;
 
 chargerSeances();
 afficherSeances();
@@ -55,6 +56,7 @@ function afficherSeances() {
             return function() {
                 seance.inscris++;
                 inscription(index);
+                
             };
         }(i);
 
