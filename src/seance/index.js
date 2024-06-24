@@ -36,7 +36,6 @@ function ajouterSeance(){
 
 
 
-
 function afficherSeances() {
     var seanceContainer = document.getElementById("seanceContainer");
     seanceContainer.innerHTML = "";
@@ -70,7 +69,6 @@ function afficherSeances() {
     
     console.log(listeSeances);
 }
-
 
 
 function inscription(listeSeances, indexSeance) {
@@ -118,10 +116,6 @@ function inscription(listeSeances, indexSeance) {
 
 
 
-
-
-
-
 function supprimerSeance(indexSeance, inscription) {
     listeSeances.splice(indexSeance, 1);
     sauvegarderSeances();
@@ -155,21 +149,6 @@ function chargerSeances() {
         afficherSeances();
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 function validerInscription() {
@@ -241,9 +220,6 @@ function resetInscriptionForm() {
 function afficherFormulaire() {
     document.getElementById("inscriptionForm").style.display = "block";
 }
-
-
-
 
 
 
