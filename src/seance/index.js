@@ -38,7 +38,7 @@ function ajouterSeance(){
 
 function afficherSeances() {
     var seanceContainer = document.getElementById("seanceContainer");
-    seanceContainer.innerHTML = "a";
+    seanceContainer.innerHTML = "";
 
     for (var i = 0; i < listeSeances.length; i++) {
         var seance = listeSeances[i];

@@ -1,4 +1,11 @@
 {
+  "database": {
+    "rules": "database.rules.json"
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
   "hosting": {
     "public": "dist",
     "ignore": [
@@ -9,8 +16,12 @@
     "rewrites": [
       {
         "source": "**",
-        "destination": "src/seance/index.html"
+        "destination": "/index.html"
       }
     ]
-  }
+  },
+  "remoteconfig": {
+    "template": "remoteconfig.template.json"
+  },
+  "extensions": {}
 }
