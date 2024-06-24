@@ -56,7 +56,8 @@ function afficherSeances() {
             return function() {
                 seance.inscris++;
                 inscription(index);
-                
+                vara = i;
+                console.log(vara);
             };
         }(i);
 
@@ -66,7 +67,7 @@ function afficherSeances() {
 
         nouvelleSeance.appendChild(nombreInscrits);
         nouvelleSeance.appendChild(boutonInscription);
-            seanceContainer.appendChild(nouvelleSeance);
+        seanceContainer.appendChild(nouvelleSeance);
     }
     
     console.log(listeSeances);
@@ -155,7 +156,7 @@ function chargerSeances() {
 
 function validerInscription() {
     resetInscriptionForm()
-    var indexSeance = document.getElementById("inscriptionForm").dataset.indexSeance;
+    var indexSeance = vara;
     var nom = document.getElementById("nom").value;
     var prenom = document.getElementById("prenom").value;
     var email = document.getElementById("email").value;
@@ -186,9 +187,8 @@ function validerInscription() {
     console.log(listeSeances);
     var seance = listeSeances[indexSeance];
     console.log(seance);
-    /*var heureSeance = seance.heure;
+    var heureSeance = seance.heure;
     var dateSeance = seance.date;
-    
     var nomCours = seance.cours;
     var classe =  seance.classe;
 
@@ -198,7 +198,7 @@ function validerInscription() {
     // Réinitialiser le formulaire
     var msg_warn = "Un mail de confirmation vous à été envoyer à l'adresse mail suivante : " + email
     alert(msg_warn)
-    console.log(msg_warn);*/
+    console.log(msg_warn);
     
     return;
 }
