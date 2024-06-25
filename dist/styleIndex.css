@@ -21,8 +21,8 @@ body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvet
 
 html,
 body {
-	height: 100vh;
-	width: 100vw;
+	height: auto;
+	width: auto;
 }
 
 body {
