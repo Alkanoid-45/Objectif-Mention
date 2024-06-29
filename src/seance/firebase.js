@@ -1,8 +1,7 @@
 // Import the functions you need from the SDKs you need
-import firebase from "firebase/compat/app";
-import "firebase/analytics"
-import "firebase/auth"
-import "firebase/app"
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -11,6 +10,7 @@ import "firebase/app"
 const firebaseConfig = {
   apiKey: "AIzaSyB7sBpiLf9tHIGU0kfjBjNwvNc_SGkERKU",
   authDomain: "objectif-mention-stpaul.firebaseapp.com",
+  databaseURL: "https://objectif-mention-stpaul-default-rtdb.europe-west1.firebasedatabase.app",
   projectId: "objectif-mention-stpaul",
   storageBucket: "objectif-mention-stpaul.appspot.com",
   messagingSenderId: "71537034897",
