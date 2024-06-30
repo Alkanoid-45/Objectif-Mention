@@ -39,7 +39,7 @@ function ajouterSeance(){
 
 function afficherSeances() {
     var seanceContainer = document.getElementById("seanceContainer");
-    seanceContainer.innerHTML = "";
+    //seanceContainer.innerHTML = "";
 
     for (var i = 0; i < listeSeances.length; i++) {
         var seance = listeSeances[i];
@@ -257,6 +257,7 @@ function isValidEmail(email) {
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, set } from "firebase/database";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
+import { connectAuthEmulator, connectDatabaseEmulator } from "firebase/auth";
 
 
 const firebaseConfig = {
@@ -274,6 +275,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
+connectAuthEmulator(auth, "http://localhost:9099");
+connectDatabaseEmulator(getDatabase(app), "localhost", 9000);
+
 
 createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
@@ -312,3 +316,15 @@ createUserWithEmailAndPassword(auth, email, password)
   }).catch((error) => {
     // An error happened.
   });
+
+  function signup() {
+    var email = document.getElementById("semail").value;
+    var password = document.getElementById("spassword").value;
+    createUserWithEmailAndPassword(auth, email, password)
+  }
+  function login() {
+    var email = document.getElementById("lemail").value;
+    var password = document.getElementById("lpassword").value;
+    signInWithEmailAndPassword(auth, email, password)
+  }
+
