@@ -258,6 +258,19 @@ import { initializeApp } from "firebase/app";
 import { getDatabase, ref, set } from "firebase/database";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
 
+
+const firebaseConfig = {
+    apiKey: "AIzaSyB7sBpiLf9tHIGU0kfjBjNwvNc_SGkERKU",
+    authDomain: "objectif-mention-stpaul.firebaseapp.com",
+    databaseURL: "https://objectif-mention-stpaul-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "objectif-mention-stpaul",
+    storageBucket: "objectif-mention-stpaul.appspot.com",
+    messagingSenderId: "71537034897",
+    appId: "1:71537034897:web:839b20ad1db3cd29662130",
+    measurementId: "G-5KF1FJ1HKB"
+  };
+
+
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
