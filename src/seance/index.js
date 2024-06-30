@@ -273,7 +273,6 @@ const firebaseConfig = {
 
 
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 const auth = getAuth(app);
 connectAuthEmulator(auth, "http://localhost:9099");
 connectDatabaseEmulator(getDatabase(app), "localhost", 9000);
@@ -317,14 +316,60 @@ createUserWithEmailAndPassword(auth, email, password)
     // An error happened.
   });
 
-  function signup() {
-    var email = document.getElementById("semail").value;
-    var password = document.getElementById("spassword").value;
-    createUserWithEmailAndPassword(auth, email, password)
-  }
-  function login() {
-    var email = document.getElementById("lemail").value;
-    var password = document.getElementById("lpassword").value;
-    signInWithEmailAndPassword(auth, email, password)
-  }
+const txtloginEmail = document.querySelector('#lemail')
+const txtloginPwd = document.querySelector('#lpassword')
+const txtsEmail = document.querySelector('#semail')
+const txtsPwd = document.querySelector('#spassword')
+const btnSignIn = document.querySelector('#btnSignIn')
+const btnLogin = document.querySelector('#btnLogin')
 
+
+// Login using email/password
+const loginEmailPassword = async () => {
+    const loginEmail = txtloginEmail.value
+    const loginPassword = txtloginPwd.value
+  
+    // step 1: try doing this w/o error handling, and then add try/catch
+    await signInWithEmailAndPassword(auth, loginEmail, loginPassword)
+}
+const createAccount = async () => {
+    const email = txtsEmail.value
+    const password = txtsPwd.value
+  
+    try {
+      await createUserWithEmailAndPassword(auth, email, password)
+    }
+    catch(error) {
+      console.log(`There was an error: ${error}`)
+      showLoginError(error)
+    } 
+  }// Monitor auth state
+const monitorAuthState = async () => {
+    onAuthStateChanged(auth, user => {
+      if (user) {
+        console.log(user)
+        showApp()
+        showLoginState(user)
+  
+        hideLoginError()
+        hideLinkError()
+      }
+      else {
+        showLoginForm()
+        lblAuthState.innerHTML = `You're not logged in.`
+      }
+    })
+  }
+  
+  // Log out
+  const logout = async () => {
+    await signOut(auth);
+  }
+  
+  btnLogin.addEventListener("click", loginEmailPassword) 
+  btnSignIn.addEventListener("click", createAccount)
+  btnLogout.addEventListener("click", logout)
+
+  connectAuthEmulator(auth, "http://localhost:9099");
+
+monitorAuthState();
