@@ -367,6 +367,4 @@ const monitorAuthState = async () => {
   btnSignIn.addEventListener("click", createAccount)
   btnLogout.addEventListener("click", logout)
 
-  connectAuthEmulator(auth, "http://localhost:9099");
-
 monitorAuthState();
