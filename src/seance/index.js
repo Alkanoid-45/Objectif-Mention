@@ -257,7 +257,6 @@ function isValidEmail(email) {
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, set } from "firebase/database";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
-import { connectAuthEmulator, connectDatabaseEmulator } from "firebase/auth";
 
 
 const firebaseConfig = {
@@ -274,8 +273,6 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-connectAuthEmulator(auth, "http://localhost:9099");
-connectDatabaseEmulator(getDatabase(app), "localhost", 9000);
 
 
 createUserWithEmailAndPassword(auth, email, password)
@@ -316,12 +313,12 @@ createUserWithEmailAndPassword(auth, email, password)
     // An error happened.
   });
 
-const txtloginEmail = document.querySelector('#lemail')
-const txtloginPwd = document.querySelector('#lpassword')
-const txtsEmail = document.querySelector('#semail')
-const txtsPwd = document.querySelector('#spassword')
-const btnSignIn = document.querySelector('#btnSignIn')
-const btnLogin = document.querySelector('#btnLogin')
+const txtloginEmail = document.document.getElementById('lemail')
+const txtloginPwd = document.document.getElementById('lpassword')
+const txtsEmail = document.document.getElementById('semail')
+const txtsPwd = document.document.getElementById('spassword')
+const btnSignIn = document.document.getElementById('btnSignIn')
+const btnLogin = document.document.getElementById('btnLogin')
 
 
 // Login using email/password
